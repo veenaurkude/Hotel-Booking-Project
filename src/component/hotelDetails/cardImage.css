@@ -1,0 +1,26 @@
+.imageContainer{
+    width: 1200px;
+    display: flex;
+    padding: 10px;
+}
+.image1{
+    width: 600px;
+    height: 400px;
+
+}
+.imagebox{
+    width: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    /* padding: 10px; */
+}
+.boximage{
+    width: 290px;
+    height: 180px;
+    margin: 5px;
+    box-sizing: border-box;
+
+}

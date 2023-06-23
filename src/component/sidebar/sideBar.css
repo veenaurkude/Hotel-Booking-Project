@@ -1,0 +1,15 @@
+/* App.css */
+
+/* Sidebar styles */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    padding: 20px;
+    background-color: #bee6aa;
+  }
+  
+  .sidebar h2 {
+    margin-bottom: 10px;
+  }
+
+  

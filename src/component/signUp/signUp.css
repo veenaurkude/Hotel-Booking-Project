@@ -1,0 +1,50 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-image: url(../signUp/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 10px 0px 10px 60px;
+}
+
+.content{
+    width: 400px;
+    font-size: 48px;
+    font-weight: 700;
+    padding: 0 0 17px;
+    line-height: 1.04;
+    margin: 0;
+    color:#ccc;
+    margin-left: 20px;
+}
+
+.Wrapper{
+    border: 2px solid #ccc;
+    width: 400px;
+    background-color: #cccccc52;
+    box-shadow: 1px 3px 10px 3px #ccffac; 
+    border-radius: 20px;
+    margin: 2rem 8rem auto;
+    padding: 1rem 2rem 2rem; 
+}
+
+.Heading{
+    text-align: center;
+    color: #23b510;
+}
+
+.Form_Section{
+    display: flex;
+   
+}
+
+.Signup{
+    margin-left: 2rem;
+    width: 100%;
+}
+
+.Text_Field{
+    width: 100%;
+    
+}

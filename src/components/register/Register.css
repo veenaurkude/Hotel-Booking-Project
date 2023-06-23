@@ -1,0 +1,29 @@
+.Wrapper{
+    border: 2px solid #ccc;
+    box-shadow: 1px 3px 10px 3px #ccc; 
+    border-radius: 5px;
+    margin: 4rem 8rem auto;
+    padding: 1rem 2rem 2rem; 
+}
+
+.Heading{
+    text-align: center;
+}
+
+.Form_Section{
+    display: flex;
+}
+
+.Signup{
+    margin-left: 2rem;
+    width: 100%;
+}
+
+.Text_Field{
+    width: 100%;
+    
+}
+
+/* .Side_Section{
+    margin-left: 1rem;
+} */

@@ -1,3 +1,14 @@
+/* .Login_Wrapper{
+
+    width: 100%;
+}
+
+.Login_Wrapper img{
+    width: 100%;
+    opacity: 0.9;
+    background: rgba(57, 57, 57, 0.8);
+    object-fit: cover;
+}
 .Login_Form{
     border: 2px solid #ccc;
     box-shadow: 1px 3px 10px 3px #ccc; 
@@ -18,4 +29,166 @@
 .error {
     margin-top: 1px;
     color: red;
+  } */
+
+/* .Login_Wrapper {
+    position: relative;
   }
+  
+  .Login_Wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../assets/images/insert.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.5; 
+    Adjust the opacity as desired
+  }
+  
+  .Login_Form {
+    position: relative;
+    z-index: 1;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+  } */
+
+/* --------------------------------------------------------------------------------------------------- */
+
+/* body {
+  background-image: url("../../assets/images/insert.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+} */
+
+.Login_Wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.Login_Wrapper {
+  background-image: url("../../assets/images/insert.jpg");
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.Login_Form {
+  /* background-color: #fff; */
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 1px 3px 10px 3px #ccc;
+}
+
+.Heading {
+  text-align: center;
+}
+
+.Text_Field {
+  width: 100%;
+}
+
+.error {
+  margin-top: 1px;
+  color: red;
+}
+
+/* ==================================================================================== */
+
+/* 
+body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .Login_Wrapper {
+    position: relative;
+    min-height: 100vh;
+    background-image: url("../../assets/images/insert.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .Login_Form {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 1px 3px 10px 3px #ccc;
+  }
+  
+  .Login_Form::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+    background-image: url("../../assets/images/insert.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.5; 
+  }
+  
+  .Login_Form h2 {
+    margin: 0;
+  }
+  
+  .Login_Form p {
+    margin: 1rem 0;
+  }
+  
+  .Login_Form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .Login_Form form > div {
+    margin-bottom: 1rem;
+  }
+  
+  .Login_Form form > div:last-child {
+    margin-bottom: 0;
+  }
+  
+  .Login_Form .error {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+  }
+  
+  .Login_Form .error:first-letter {
+    text-transform: uppercase;
+  }
+  
+  .Login_Form .MuiButton-root {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+   */

@@ -1,8 +1,8 @@
-.Wrapper{
+/* .Wrapper{
     border: 2px solid #ccc;
     box-shadow: 1px 3px 10px 3px #ccc; 
     border-radius: 5px;
-    margin: 4rem 8rem auto;
+    margin: 4rem rem auto;
     padding: 1rem 2rem 2rem; 
 }
 
@@ -27,7 +27,81 @@
 .error{
     margin-top: 1px;
     color: red;
-}
-/* .Side_Section{
-    margin-left: 1rem;
 } */
+
+/* ------------------------------------------------------------- */
+
+
+.Wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("../../assets/images/hotel.jpg");
+    background-size: cover;
+  }
+  
+  .Heading {
+    text-align: center;
+    color: #333;
+  }
+  
+  .Form_Section {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 2rem;
+    border-radius: 10px;
+    width: 30rem;
+    margin: auto;
+  }
+  
+  .Signup {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .error {
+    color: red;
+  }
+  
+  .Button {
+    margin-top: 0.5rem;
+  }
+  
+  .Divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 1rem 0;
+    color: #aaa;
+  }
+  
+  .Divider::before,
+  .Divider::after {
+    content: "";
+    flex-grow: 1;
+    background-color: #aaa;
+    height: 1px;
+    margin: 0 1rem;
+  }
+  
+  .InputField {
+    margin-bottom: 1rem;
+  }
+  
+  .InputField input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .InputField input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  }
+  
+  .InputField::placeholder {
+    color: #333;
+  }
+  

@@ -9,6 +9,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Register() {
+
   let initialValues;
   if (localStorage.getItem("user")) {
     initialValues = JSON.parse(localStorage.getItem("user"));
@@ -103,19 +104,20 @@ function Register() {
     const SignIn=()=>{
         navigate('/login')
     }
-    // const SignUp=()=>{
-    //   navigate('/signup')
-
+    
   return (
     <div className="Wrapper">
-      <h2 className="Heading">Sign Up</h2>
+      {/* <h2 className="Heading">Sign Up</h2> */}
 
       <div className="Form_Section">
-        <div className="Side_Section">
+        
+        {/* <div className="Side_Section">
           <img src={hotel} alt="Hotel" />
-        </div>
+        </div> */}
 
         <form className="Signup" onSubmit={handleSubmit}>
+        <h2 className="Heading">Sign Up</h2>
+
           <div>
             <InputField
               // label="First Name"
@@ -128,7 +130,7 @@ function Register() {
           <br />
           <div>
             <InputField
-              // label = ""
+              // label = "Last Name"
               type="text"
               id="lastname"
               name="lastname"
@@ -139,7 +141,7 @@ function Register() {
 
           <div>
             <InputField
-              // label = ""
+              // label = "Username"
               type="text"
               id="username"
               name="username"

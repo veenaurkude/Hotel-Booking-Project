@@ -4,6 +4,8 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import ApartmentIcon from '@mui/icons-material/Apartment';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { NavLink } from "react-router-dom";
 
 // import IconButton from '@mui/material/IconButton';
@@ -46,9 +48,12 @@ function Header() {
 
           <div style={{ justifyContent: "flex-end" }}>
 
-            
-            <NavLink to="/hotels">
-              <Button sx={{color: "#fff"}}>Hotels</Button>
+
+            <NavLink to="/hotel_details">
+              <Button sx={{color: "#fff"}}>
+                <ApartmentIcon/>
+                Hotels
+                </Button>
             </NavLink>
 
             {/* <NavLink>
@@ -56,7 +61,10 @@ function Header() {
             </NavLink> */}
 
             <NavLink to="/login">
-              <Button sx={{color: "#fff"}}>Login / SignUp</Button>
+              <Button sx={{color: "#fff"}}>
+                <AccountCircleIcon/>
+                Login / SignUp
+                </Button>
             </NavLink>
           </div>
         </Toolbar>

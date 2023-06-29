@@ -3,6 +3,7 @@ import "./Login.css";
 import Button from "@mui/material/Button";
 // import { useFormik } from "formik";
 // import * as Yup from "yup";
+// import insert from "../../assets/images/insert.jpg"
 import InputField from "../../components/InputField";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -13,8 +14,8 @@ function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setpassword] = useState("");
   // const [islogin, setlogin] = useRecoilState(isLogin);
-  
-  const [errorUser, setErrorUser] = useState("")
+
+  const [errorUser, setErrorUser] = useState("");
   const [errorEmail, setErrorEmail] = useState();
   const [errorPass, setErrorPass] = useState("");
 
@@ -86,60 +87,60 @@ function LoginForm() {
     }
   };
 
-
   return (
-    <div className="Login_Form">
-      <h2 className="Heading">Sign In</h2>
-      <p>For security, please sign in to access your information</p>
-      <form >
-        <div>
-        
-        
-          <InputField
-            label="Email"
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Email"
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-          {errorEmail && <span className="error">{errorEmail}</span>}
-          
-        </div>
-        <br />
-        <div>
-          
-          <InputField
-            label="Password"
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Password"
-            onChange={(e) => {
-              setpassword(e.target.value);
-            }}
+    <div className="Login_Wrapper">
+      {/* <img src={insert} alt="" /> */}
+      <div className="Login_Form">
+        <h2 className="Heading">Sign In</h2>
+        <p>For security, please sign in to access your information</p>
+        <form>
+          <div>
+            <InputField
+              label="Email"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email"
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
             />
-            
+            {errorEmail && <span className="error">{errorEmail}</span>}
+          </div>
+          <br />
+          <div>
+            <InputField
+              label="Password"
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              onChange={(e) => {
+                setpassword(e.target.value);
+              }}
+            />
+
             {errorPass && <span className="error">{errorPass}</span>}
-        </div>
+          </div>
 
-        <br />
-        <Button
-          variant="contained"
-          sx={{ width: "100%", marginBottom: "1rem" }}
-          type="submit"
-          onClick={handleLogin}
-        >
-          Sign In
-        </Button>
+          <br />
+          <Button
+            variant="contained"
+            sx={{ width: "100%", marginBottom: "1rem" }}
+            type="submit"
+            onClick={handleLogin}
+          >
+            Sign In
+          </Button>
 
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <Button onClick={() => navigate("/register")}>Create Account</Button>
-          <Button>Forgot Password</Button>
-        </div>
-      </form>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <Button onClick={() => navigate("/register")}>
+              Create Account
+            </Button>
+            <Button>Forgot Password</Button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

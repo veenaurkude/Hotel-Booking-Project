@@ -11,6 +11,7 @@ import HotelDetails from '../../pages/Hotels/HotelDetails';
 import Register from '../../pages/Register/Register';
 import LoginForm from '../../pages/Login/LoginForm';
 import About from '../../pages/About/About';
+import RoomCard from '../../pages/Hotels/Rooms';
 // import Overview from '../../pages/Hotels/overview';
 
 function Layout() {
@@ -26,13 +27,16 @@ function Layout() {
 
           <Route path='/home' element={<Home/>}></Route>
 
-          <Route path='/hotels' element={<HotelDetails/>}></Route>
+          <Route path='/hotel_details' element={<HotelDetails/>}></Route>
 
           <Route path='/login' element={<LoginForm />}></Route>
 
           <Route path='/register' element={<Register />}></Route>
 
+          <Route path='/hotels' element={<RoomCard />}></Route>
+
           <Route path='/about' element={<About />}></Route>
+
 
           {/* <Route path='/overview' element={<Overview/>}></Route> */}
         </Routes>

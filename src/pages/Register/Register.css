@@ -24,6 +24,10 @@
     
 }
 
+.error{
+    margin-top: 1px;
+    color: red;
+}
 /* .Side_Section{
     margin-left: 1rem;
 } */

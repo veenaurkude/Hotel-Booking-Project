@@ -1,0 +1,26 @@
+
+.maincontainer {
+  border: gray;
+  height: 550px;
+  width: 900px;
+  margin-top: 1px;
+  background-color: rgb(190, 190, 190);
+  margin-left: 20px;
+  border-radius: 10px;
+}
+.contentmain {
+  margin-left: 20px;
+  padding-top: 20px;
+}
+.item {
+  display: flex;
+  gap: 10%;
+  margin-top: 10px;
+  margin-left: 0px;
+}
+p {
+  padding: 10px;
+}
+.checked {
+  color: orange;
+}

@@ -1,19 +1,21 @@
 import React from "react";
+import { useEffect, useState } from "react";
 import "./Home.css";
-import Date from "../components/Date";
-import { styled } from "@mui/material/styles"; //alpha
+import Date from "../../components/Date";
+import { styled, alpha } from "@mui/material/styles"; //alpha
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import Button from "@mui/material/Button";
-// import hotel from "../assets/images/hotel.jpg";
-import insert from "../assets/images/insert.jpg";
-import CardAction from "../components/Cards";
-import DialogBox from "../components/DialogBox";
+import bgImg from "../../assets/images/bgImg.jpg";
+import CardAction from "../../components/Cards";
+import DialogBox from "../../components/DialogBox";
+
+import { useNavigate } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: "#fff",
+  backgroundColor: alpha(theme.palette.common.white, 0.15),
   "&:hover": {
     backgroundColor: "#fdfdfd",
   },
@@ -51,11 +53,34 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 function Home() {
+  const navigate = useNavigate();
+
+  const [cardData, setCardData] = useState([]);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/photos") // Replace with your API endpoint
+      .then((response) => response.json())
+      .then((data) => {
+        // Assuming your API response is an array of objects
+        // setCardData(data);
+        // console.log(data);
+        const displayedData = data.slice(0, 4); // Change the slice range to display 4 or 5 objects
+        setCardData(displayedData);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
+  const navigateToHotels = () => {
+    // Handle navigation logic here
+    // Example:
+    navigate("/hotels");
+  };
+
   return (
     <>
       <div className="home-wrapper">
         <div className="background-image">
-          <img src={insert} alt="" />
+          <img src={bgImg} alt="Hotel" />
           <div className="image-text">Hotel</div>
         </div>
         <div className="content">
@@ -68,8 +93,8 @@ function Home() {
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
-          <br />
-          <div style={{display: "flex", gap: "1rem"}}>
+          {/* <br /> */}
+          <div style={{ display: "flex", gap: "1rem" }}>
             <div
               style={{
                 display: "flex",
@@ -79,7 +104,7 @@ function Home() {
             >
               <Date />
             </div>
-            <div style={{ marginTop: "0.5rem"}}>
+            <div style={{ marginTop: "0.5rem" }}>
               <DialogBox />
             </div>
           </div>
@@ -89,11 +114,11 @@ function Home() {
             Search
           </Button>
         </div>
+
         <div className="Card_Wrapper">
-          <CardAction className="Card" />
-          <CardAction className="Card" />
-          <CardAction className="Card" />
-          <CardAction className="Card" />
+          {cardData.map((card) => (
+            <CardAction className="Card" image={card.url} title={card.title} />
+          ))}
         </div>
       </div>
     </>
@@ -101,3 +126,4 @@ function Home() {
 }
 
 export default Home;
+

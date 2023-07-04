@@ -1,0 +1,14 @@
+
+.contentCard{
+    display: flex;
+    padding: 1rem;
+}
+ul{
+    display: flex;
+    justify-content: start;
+
+}
+li{
+    padding-left: 2rem;
+    list-style: none    ;
+}

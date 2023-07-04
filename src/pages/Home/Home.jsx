@@ -110,7 +110,7 @@ function Home() {
           </div>
 
           <br />
-          <Button variant="contained" color="success">
+          <Button variant="contained" color="success" onClick={()=>navigate('/hotel_list')}>
             Search
           </Button>
         </div>

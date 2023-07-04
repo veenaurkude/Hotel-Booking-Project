@@ -45,7 +45,7 @@ function Header() {
           <div style={{ justifyContent: "flex-end" }}>
 
 
-            <NavLink to="/hotel_details">
+            <NavLink to="/hotel_list">
               <Button sx={{color: "#fff"}}>
                 <ApartmentIcon/>
                 Hotels

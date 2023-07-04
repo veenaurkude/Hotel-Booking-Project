@@ -1,5 +1,6 @@
-import React from 'react';
+// Layout.jsx
 
+import React from 'react';
 import { Routes, Route } from "react-router-dom";
 
 import "./Layout.css";
@@ -12,9 +13,14 @@ import Register from '../../pages/Register/Register';
 import LoginForm from '../../pages/Login/LoginForm';
 import About from '../../pages/About/About';
 import RoomCard from '../../pages/Hotels/Rooms';
-// import Overview from '../../pages/Hotels/overview';
+// import Profile from '../../pages/Profile/Profile';
+import UserProfile from '../../pages/Profile/UserProfile';
+
+
+// import Overview from '../../pages/Hotels/overview'; 
 
 function Layout() {
+  
   return (
     <>
     <Header />
@@ -22,6 +28,7 @@ function Layout() {
     
       <div className='MainWrapper'>
       
+          {/* <UserProfile/> */}
         <Routes>
           <Route path='/' element={<Home/>}></Route>
 
@@ -37,6 +44,10 @@ function Layout() {
 
           <Route path='/about' element={<About />}></Route>
 
+          {/* <Route path='/profile' element={< UserProfile/>}></Route> */}
+
+          <Route path='/profile' element={<UserProfile />} />
+
 
           {/* <Route path='/overview' element={<Overview/>}></Route> */}
         </Routes>
@@ -51,3 +62,4 @@ function Layout() {
 }
 
 export default Layout;
+

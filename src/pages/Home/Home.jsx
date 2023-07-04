@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import "./Home.css";
-import Date from "../../components/Date";
+import DatePickerForm from "../../components/DatePickerForm";
 import { styled, alpha } from "@mui/material/styles"; //alpha
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
@@ -102,7 +102,8 @@ function Home() {
                 justifyItems: "center",
               }}
             >
-              <Date />
+              <DatePickerForm />
+              <DatePickerForm />
             </div>
             <div style={{ marginTop: "0.5rem" }}>
               <DialogBox />

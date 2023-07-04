@@ -1,7 +1,7 @@
 import React from "react";
 import "./HotelDetails.css";
 import hotel from "../../assets/images/hotel.jpg";
-import Date from "../../components/Date";
+import Date from "../../components/DatePickerForm";
 import BasicTabs from "../../components/TabPanel";
 import { Button, Grid, Paper } from "@mui/material";
 import DialogBox from "../../components/DialogBox";

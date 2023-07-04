@@ -1,4 +1,5 @@
 // ProfilePage.js
+
 import React from 'react';
 import "./Profile.css";
 import { Typography, Button } from '@mui/material';
@@ -9,7 +10,8 @@ function Profile({ user }) {
       <Typography variant='h5'>User Details</Typography>
       <br />
       <div className='Name_Wrapper'>
-        <Typography variant='body1'>Name: 
+        <Typography variant='body1'>
+          Name: 
           <br />
           {user.name}
         </Typography>
@@ -19,7 +21,8 @@ function Profile({ user }) {
       <br />
 
       <div className='Name_Wrapper'>
-        <Typography>Email: 
+        <Typography>
+          Email: 
           <br />
           {user.email}
         </Typography>
@@ -29,7 +32,8 @@ function Profile({ user }) {
       <br />
 
       <div className='Name_Wrapper'>
-        <Typography>Username:
+        <Typography>
+          Username:
           <br /> 
           {user.username}
         </Typography>
@@ -39,7 +43,8 @@ function Profile({ user }) {
       <br />
 
       <div className='Name_Wrapper'>
-        <Typography>Phone: 
+        <Typography>
+          Phone: 
           <br />
           {user.phone}
         </Typography>

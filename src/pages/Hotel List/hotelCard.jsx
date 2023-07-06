@@ -35,7 +35,7 @@ export default function MediaCard() {
         </Typography>
         </div>
         <Box>
-          <ul>
+          <ul className="feature_list">
             <li>Free Wifi</li>
             <li>Reception</li>
             <li>Power backup</li>

@@ -7,11 +7,18 @@ import Button from "@mui/material/Button";
 import ApartmentIcon from '@mui/icons-material/Apartment';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { NavLink } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
 
 function Header() {
 
+  const location = useLocation();
+
+  const hideHeader = location.pathname === "/login" || location.pathname === "/register";
+
+
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, visibility: hideHeader ? "hidden" : "visible" }}>
       <AppBar
         position="fixed"
         style={{ background: "#333" }}
@@ -59,7 +66,7 @@ function Header() {
                 </Button>
             </NavLink>
 
-            <NavLink to="/profile">
+            <NavLink to="/swiper">
               <Button sx={{color: "#fff"}}>
                 {/* <AccountCircleIcon/> */}
                 Profile

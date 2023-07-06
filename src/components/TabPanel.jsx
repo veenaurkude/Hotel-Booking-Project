@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import "../pages/Hotels/Overview.css";
 import Ratings from "./Ratings";
+import RoomCard from "../pages/Hotels/rooms";
 
 // import { Button } from "@mui/material";  
 
@@ -95,7 +96,7 @@ function BasicTabs() {
       </TabPanel>
 
       <TabPanel value={value} index={1}>
-        Hotel Rooms
+        <RoomCard/>
       </TabPanel>
       <TabPanel value={value} index={2}>
         Facilities

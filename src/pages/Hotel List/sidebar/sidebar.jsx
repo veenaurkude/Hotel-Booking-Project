@@ -8,7 +8,7 @@ import './sideBar.css'
 const Sidebar=()=>{
 return(
     <div className="sidebar">
-        <CheckboxLabels></CheckboxLabels>
+    <CheckboxLabels></CheckboxLabels>
     <RadioButtonsGroup></RadioButtonsGroup>
     <DiscreteSlider></DiscreteSlider>
   </div>

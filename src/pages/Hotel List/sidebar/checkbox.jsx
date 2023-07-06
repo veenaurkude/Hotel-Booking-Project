@@ -6,14 +6,14 @@ import { Typography } from "@mui/material";
 
 export default function CheckboxLabels() {
   return (
-    <FormGroup>
+    <FormGroup sx={{color:'hsl(240, 1%, 48%)'}}>
       <Typography variant="h5" component="h2">
         Filter by
       </Typography>
       <Typography variant="h5" component="h2">
         Popular filters
       </Typography>
-      <FormControlLabel control={<Checkbox defaultChecked />} label="Spa" />
+      <FormControlLabel control={<Checkbox/>} label="Spa" />
       <FormControlLabel control={<Checkbox/>} label="Breakfast included" />
       <FormControlLabel control={<Checkbox/>} label="Pool" />
       <FormControlLabel control={<Checkbox/>} label="Hot tub" />

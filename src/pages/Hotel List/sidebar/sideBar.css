@@ -2,10 +2,10 @@
 
 /* Sidebar styles */
 .sidebar {
-    width: 200px;
+    width: 220px;
     height: 100vh;
     padding: 20px;
-    background-color: #adadad;
+    background-color: white;
   }
   
   .sidebar h2 {

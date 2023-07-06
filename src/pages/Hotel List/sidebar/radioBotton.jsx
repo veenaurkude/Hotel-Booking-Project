@@ -7,7 +7,7 @@ import FormLabel from '@mui/material/FormLabel';
 
 export default function RadioButtonsGroup() {
   return (
-    <FormControl>
+    <FormControl sx={{color:"hsl(240, 1%, 48%)"}}>
       <RadioGroup
         aria-labelledby="demo-radio-buttons-group-label"
         defaultValue="female"

@@ -9,8 +9,8 @@ function valuetext(value) {
 
 export default function DiscreteSlider() {
   return (
-    <Box sx={{ width: 200 }}>
-    <Typography variant='h5'>
+    <Box sx={{ width: 180 }}>
+    <Typography variant='h5' sx={{color:'hsl(240, 1%, 48%)'}}>
         Price per night
     </Typography>
       <Slider
@@ -21,7 +21,8 @@ export default function DiscreteSlider() {
         step={200}
         marks
         min={600}
-        max={5000}
+        max={4500}
+        sx={{color:'rgb(247, 147, 41)'}}
       />
     </Box>
   );

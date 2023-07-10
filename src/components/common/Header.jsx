@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // // import * as React from "react";
 // // import AppBar from "@mui/material/AppBar";
 // // import Box from "@mui/material/Box";
@@ -7,9 +8,23 @@
 // // import ApartmentIcon from '@mui/icons-material/Apartment';
 // // import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 // // import { NavLink } from "react-router-dom";
+=======
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import ApartmentIcon from '@mui/icons-material/Apartment';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { NavLink } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
+>>>>>>> a03e168218ce98e37726d86868690cf9d95704eb
 
 // // function Header() {
 
+<<<<<<< HEAD
 // //   return (
 // //     <Box sx={{ flexGrow: 1 }}>
 // //       <AppBar
@@ -26,6 +41,44 @@
 // //           > */}
 // //           {/* <MenuIcon /> */}
 // //           {/* </IconButton> */}
+=======
+  const location = useLocation();
+
+  const hideHeader = location.pathname === "/login" || location.pathname === "/register";
+
+
+  return (
+    <Box sx={{ flexGrow: 1, visibility: hideHeader ? "hidden" : "visible" }}>
+      <AppBar
+        position="fixed"
+        style={{ background: "#333" }}
+      >
+        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+          {/* <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          > */}
+          {/* <MenuIcon /> */}
+          {/* </IconButton> */}
+          
+          <div>
+            <NavLink to="/home">
+              <Button>
+                <Typography
+                  variant="h6"
+                  component="div"
+                    sx={{ flexGrow: 1, justifyContent: "flex-start", color: "#fff" }}
+                  href="/"
+                >
+                  StayVista
+                </Typography>
+              </Button>
+            </NavLink>
+          </div>
+>>>>>>> a03e168218ce98e37726d86868690cf9d95704eb
 
 // //           <div>
 // //             <NavLink to="/home">
@@ -58,12 +111,21 @@
 // //                 </Button>
 // //             </NavLink>
 
+<<<<<<< HEAD
 // //             <NavLink to="/profile">
 // //               <Button sx={{color: "#fff"}}>
 // //                 {/* <AccountCircleIcon/> */}
 // //                 Profile
 // //                 </Button>
 // //             </NavLink>
+=======
+            <NavLink to="/swiper">
+              <Button sx={{color: "#fff"}}>
+                {/* <AccountCircleIcon/> */}
+                Profile
+                </Button>
+            </NavLink>
+>>>>>>> a03e168218ce98e37726d86868690cf9d95704eb
 
 // //           </div>
 // //         </Toolbar>

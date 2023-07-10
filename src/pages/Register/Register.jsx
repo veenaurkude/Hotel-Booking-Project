@@ -2,7 +2,7 @@ import React from "react";
 import "./Register.css";
 import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
-import hotel from "../../assets/images/hotel.jpg";
+// import hotel from "../../assets/images/hotel.jpg";
 import InputField from "../../components/InputField";
 
 import { useState } from "react";
@@ -139,7 +139,7 @@ function Register({onLogin}) {
 
           <div>
             <InputField
-              // label="First Name"
+              label="Name"
               type="ṭext"
               id="firstname"
               name="firstname"
@@ -152,7 +152,7 @@ function Register({onLogin}) {
 
           <div>
             <InputField
-              // label="Email"
+              label="Email"
               type="email"
               id="email"
               name="email"
@@ -171,7 +171,7 @@ function Register({onLogin}) {
 
           <div>
             <InputField
-              // label = "Username"
+              label = "Username"
               type="text"
               id="username"
               name="username"
@@ -187,7 +187,7 @@ function Register({onLogin}) {
 
           <div>
             <InputField
-              // label = "Last Name"
+              label = "Phone"
               type="number"
               id="phone"
               name="phone"
@@ -201,7 +201,7 @@ function Register({onLogin}) {
 
           <div>
             <InputField
-            // label="Password"
+            label="Password"
             type="password"
             id="password"
             name="password"

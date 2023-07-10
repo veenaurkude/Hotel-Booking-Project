@@ -1,3 +1,4 @@
+
 import * as React from "react";
 import PropTypes from "prop-types";
 import Button from "@mui/material/Button";
@@ -11,6 +12,9 @@ import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import PeopleIcon from "@mui/icons-material/People";
+
+
+import "./DialogBox.css";
 
 import { useState } from "react";
 
@@ -68,7 +72,9 @@ function DialogBox() {
   };
 
   const handleDecRooms = () => {
-    setRooms(rooms - 1);
+    if (rooms > 0) {
+      setRooms(rooms - 1);
+    }
   };
 
   const handleIncAdults = () => {
@@ -76,7 +82,9 @@ function DialogBox() {
   };
 
   const handleDecAdults = () => {
-    setAdults(adults - 1);
+    if (adults > 0) {
+      setAdults(adults - 1);
+    }
   };
 
   const handleIncChildren = () => {
@@ -84,7 +92,9 @@ function DialogBox() {
   };
 
   const handleDecChildren = () => {
-    setChildren(children - 1);
+    if (children > 0) {
+      setChildren(children - 1);
+    }
   };
 
   const handleClickOpen = () => {
@@ -100,23 +110,12 @@ function DialogBox() {
   return (
     <div>
       <TextField
-        // placeholder="Guests"
-        // value={`Rooms: ${selectedRooms}, Adults: ${selectedAdults}, Children: ${selectedChildren}`}
-
-        // value={
-        //   rooms === 0 && adults === 0 && children === 0
-        //     ? 'Guests'
-        //     : `Rooms: ${selectedRooms}, Adults: ${selectedAdults}, Children: ${selectedChildren}`
-        // }
-
         placeholder={
-          rooms === 0 && adults === 0 && children === 0
-            ? 'Guests'
-            : ''
+          rooms === 0 && adults === 0 && children === 0 ? "Guests" : ""
         }
         value={
           rooms === 0 && adults === 0 && children === 0
-            ? ''
+            ? ""
             : `Rooms: ${selectedRooms}, Adults: ${selectedAdults}, Children: ${selectedChildren}`
         }
         onClick={handleClickOpen}
@@ -129,41 +128,38 @@ function DialogBox() {
         }}
       />
 
-      {/* <Button variant="outlined" onClick={handleClickOpen}>
-        Guests
-      </Button> */}
-
       <BootstrapDialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
       >
-        <BootstrapDialogTitle
-          id="customized-dialog-title"
-          onClose={handleClose}
-        >
+        <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
           Select Guests
         </BootstrapDialogTitle>
         <DialogContent dividers>
-          <Typography gutterBottom>
+          <Typography gutterBottom sx={{display:"flex", gap:"1rem", justifyContent:"space-between"}}>
             Rooms
-            <Button onClick={handleDecRooms}>-</Button>
+            <br />
+            <button className="btn" onClick={handleDecRooms} disabled={rooms === 0}>-</button>
             {rooms}
-            <Button onClick={handleIncRooms}>+</Button>
+            <button className="btn" onClick={handleIncRooms}>+</button>
+            
           </Typography>
 
-          <Typography gutterBottom>
+          <Typography gutterBottom sx={{display:"flex", gap:"1rem", justifyContent:"space-between"}}>
             Adults
-            <Button onClick={handleDecAdults}>-</Button>
+            <br />
+            <button className="btn" onClick={handleDecAdults} disabled={adults === 0}>-</button>
             {adults}
-            <Button onClick={handleIncAdults}>+</Button>
+            <button className="btn" onClick={handleIncAdults}>+</button>
           </Typography>
 
-          <Typography gutterBottom>
-            Childern
-            <Button onClick={handleDecChildren}>-</Button>
+          <Typography gutterBottom sx={{display:"flex", gap:"1rem", justifyContent:"space-between"}}>
+            Children
+            <br />
+            <button className="btn" onClick={handleDecChildren} disabled={children === 0}>-</button>
             {children}
-            <Button onClick={handleIncChildren}>+</Button>
+            <button className="btn" onClick={handleIncChildren}>+</button>
           </Typography>
         </DialogContent>
         <DialogActions>
@@ -177,3 +173,5 @@ function DialogBox() {
 }
 
 export default DialogBox;
+
+

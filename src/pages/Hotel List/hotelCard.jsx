@@ -38,10 +38,17 @@ export default function MediaCard() {
         </Typography>
         </div>
         <Box>
+<<<<<<< HEAD
           <ul style={{color:'hsl(240, 1%, 48%)', marginTop:'6px'}}>
             <li> <WifiIcon/>&nbsp;&nbsp;Free Wifi</li>
             <li><TaskAltIcon/>&nbsp;&nbsp;Reception</li>
             <li><BoltIcon/>&nbsp;&nbsp;Power backup</li>
+=======
+          <ul className="feature_list">
+            <li>Free Wifi</li>
+            <li>Reception</li>
+            <li>Power backup</li>
+>>>>>>> a03e168218ce98e37726d86868690cf9d95704eb
           </ul>
         </Box>
       </CardContent>

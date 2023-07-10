@@ -14,7 +14,8 @@ function HotelList() {
           <div>
             <Sidebar />
           </div>
-          <div style={{ display: "flex", flexDirection: "column" }}>
+          <div className="hotelDetails"> 
+          {/* style={{ display: "flex", flexDirection: "column" }} */}
             {Array.from({ length: count }, (_, index) => (
               <div key={index} style={{ paddingBottom: "10px" }}>
                 <MediaCard></MediaCard>

@@ -1,59 +1,58 @@
-import React from "react";
+
+import React, { useState } from "react";
 import "./Login.css";
 import Button from "@mui/material/Button";
-// import { useFormik } from "formik";
-// import * as Yup from "yup";
-// import insert from "../../assets/images/insert.jpg"
 import InputField from "../../components/InputField";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Slider from "./Slider";
+import '../../../node_modules/swiper/swiper-bundle.min.css';
+// import Swiper from 'swiper';
+// import { SwiperSlide } from "swiper/react";
+// import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+
 
 function LoginForm() {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
-  const [password, setpassword] = useState("");
-  // const [islogin, setlogin] = useRecoilState(isLogin);
-
-  const [errorUser, setErrorUser] = useState("");
-  const [errorEmail, setErrorEmail] = useState();
+  const [password, setPassword] = useState("");
+  const [errorEmail, setErrorEmail] = useState("");
   const [errorPass, setErrorPass] = useState("");
 
-  function handleLogin() {
+
+  function handleLogin(event) {
+    event.preventDefault();
+
     const isEmailValid = validateEmail();
     const isPasswordValid = validatePassword();
 
-    if (!isEmailValid || !isPasswordValid) {
-      return;
-    }
-
-    const users = JSON.parse(localStorage.getItem("users") || "[]");
-    const user = users.find((user) => {
-      return (
-        user.name.toString() === email.toString() ||
-        user.email.toString() === email.toString() ||
-        user.phone.toString() === email.toString()
+    if (isEmailValid && isPasswordValid) {
+      const users = JSON.parse(localStorage.getItem("users") || "[]");
+      const user = users.find(
+        (user) =>
+          // user.name.toString() === email.toString() ||
+          // user.phone.toString() === email.toString() ||
+          user.email.toString() === email.toString()
       );
-    });
 
-    if (user) {
-      let uname = user.name;
-      let user1 = {
-        username: uname,
-      };
-      if (user.password.toString() === password.toString()) {
-        // setlogin(true);
-        localStorage.setItem("userData", JSON.stringify(user1));
-        navigate("/home");
+      if (user) {
+        const uname = user.name;
+        const user1 = {
+          username: uname,
+        };
+        if (user.password.toString() === password.toString()) {
+          localStorage.setItem("userData", JSON.stringify(user1));
+          navigate("/home");
+        } else {
+          alert("Invalid password");
+        }
       } else {
-        alert("Invalid password");
+        alert("User not found");
       }
-    } else {
-      alert("User not found");
-    }
 
-    setEmail("");
-    setpassword("");
+      setEmail("");
+      setPassword("");
+    }
   }
 
   const validateEmail = () => {
@@ -78,7 +77,7 @@ function LoginForm() {
       return false;
     } else if (!regex.test(password)) {
       setErrorPass(
-        "Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!"
+        "Password should be minimum 8 characters and include at least 1 capital letter, 1 number, and 1 special character!"
       );
       return false;
     } else {
@@ -88,25 +87,38 @@ function LoginForm() {
   };
 
   return (
-    <div className="Login_Wrapper">
-      {/* <img src={insert} alt="" /> */}
-      <div className="Login_Form">
+    <div className="login-container">
+      <div className="sliderWrapper">
+      <div className="Slide_Img">
+        <Slider />
+        <h4> "Unlock a world of extraordinary stays." </h4>
+      </div>
+      {/* <div>
+        Welcome to StaySafe
+      </div> */}
+       
+      </div>
+
+
+      <div className="login-form">
+        <div>
         <h2 className="Heading">Sign In</h2>
-        <p>For security, please sign in to access your information</p>
-        <form>
-          <div>
+        <p style={{textAlign:"center"}}>"Login to book your dream hotel."</p>
+        <form onSubmit={handleLogin}>
+          <div className="Text_Field">
+        
             <InputField
+              
               label="Email"
               type="email"
               id="email"
               name="email"
               placeholder="Email"
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
-            {errorEmail && <span className="error">{errorEmail}</span>}
           </div>
+            {errorEmail && <span className="error">{errorEmail}</span>}
           <br />
           <div>
             <InputField
@@ -115,11 +127,9 @@ function LoginForm() {
               id="password"
               name="password"
               placeholder="Password"
-              onChange={(e) => {
-                setpassword(e.target.value);
-              }}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
-
             {errorPass && <span className="error">{errorPass}</span>}
           </div>
 
@@ -128,7 +138,6 @@ function LoginForm() {
             variant="contained"
             sx={{ width: "100%", marginBottom: "1rem" }}
             type="submit"
-            onClick={handleLogin}
           >
             Sign In
           </Button>
@@ -140,8 +149,12 @@ function LoginForm() {
             <Button>Forgot Password</Button>
           </div>
         </form>
+        </div>
+        
       </div>
     </div>
   );
 }
+
 export default LoginForm;
+

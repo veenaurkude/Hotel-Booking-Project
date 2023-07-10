@@ -9,7 +9,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -22,12 +22,18 @@ const Item = styled(Paper)(({ theme }) => ({
 function Footer() {
   const navigate = useNavigate();
 
+
+  const location = useLocation();
+
+  const hideFooter = location.pathname === "/login" || location.pathname === "/register";
+
   const About = () => {
     navigate("/about");
   };
+  
 
   return (
-    <Box sx={{ flexGrow: 1, padding: "2rem", background: "#000" }}>
+    <Box sx={{ flexGrow: 1, padding: "2rem", background: "#000", display: hideFooter ? "none" : "visible" }}>
       <Grid container spacing={2}>
         <Grid xs={12} md={5} lg={4}>
           {/* <Item>Email subscribe section</Item> */}
@@ -88,16 +94,16 @@ function Footer() {
                 sx={{ pl: 2, listStyleType: "none", textAlign: "left" }}
               >
                 <li>
-                  <Link href="" underline="hover">Radisson Blu Hotel Mumbai</Link>
+                  <Link href="" underline="hover">Radisson Blu Hotel</Link>
                 </li>
                 <li>
-                  <Link href="" underline="hover">JW Marriott Hotel Pune</Link>
+                  <Link href="" underline="hover">JW Marriott Hotel</Link>
                 </li>
                 <li>
-                  <Link href="" underline="hover">Armani Hotel Dubai</Link>
+                  <Link href="" underline="hover">Armani Hotel</Link>
                 </li>
                 <li>
-                  <Link href="" underline="hover">Bulgari Resort Bali</Link>
+                  <Link href="" underline="hover">Bulgari Resort</Link>
                 </li>
               </Box>
             </Item>

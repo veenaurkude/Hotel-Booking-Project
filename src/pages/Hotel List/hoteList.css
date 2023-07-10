@@ -1,0 +1,21 @@
+
+.contentCard{
+    display: flex;
+    padding: 1rem;
+}
+
+.feature_list{
+    display: flex;
+    justify-content: flex-start;
+}
+
+li{
+    padding-left: 2rem;
+    list-style: none;
+}
+
+.hotelDetails{
+    display: flex;
+    flex-direction : column;   
+}
+

@@ -2,13 +2,13 @@ import React from "react";
 import "./Register.css";
 import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
-import hotel from "../../assets/images/hotel.jpg";
+// import hotel from "../../assets/images/hotel.jpg";
 import InputField from "../../components/InputField";
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Register() {
+function Register({onLogin}) {
 
   let initialValues;
   if (localStorage.getItem("user")) {
@@ -16,8 +16,11 @@ function Register() {
   } else {
     initialValues = [];
   }
+
+  const [name, setName] = useState("")
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+  const [phone,setPhone] = useState("");
   const [password, setPassword] = useState("");
   const [] = useState(initialValues);
   const navigate = useNavigate();
@@ -31,8 +34,22 @@ function Register() {
     const isEmailValid = validateEmail();
     const isPasswordValid = validatePassword();
 
+    // if (isUsernameValid && isEmailValid && isPasswordValid) {
+    //   const user = {name: username, email, password };
+    //   const storedUsers = localStorage.getItem("users");
+    //   const users = storedUsers ? JSON.parse(storedUsers) : [];
+    //   users.push(user);
+    //   localStorage.setItem("users", JSON.stringify(users));
+    //   alert("Registration successful");
+    //   navigate("/login");
+    // } else {
+    //   alert("Please fill in all required fields with valid values");
+    // }
+
+    // --------------------
+
     if (isUsernameValid && isEmailValid && isPasswordValid) {
-      const user = {name: username, email, password };
+      const user = { name, email, username, phone, password };
       const storedUsers = localStorage.getItem("users");
       const users = storedUsers ? JSON.parse(storedUsers) : [];
       users.push(user);
@@ -40,7 +57,7 @@ function Register() {
       alert("Registration successful");
       navigate("/login");
     } else {
-      // alert("Please fill in all required fields with valid values");
+      // ... existing code ...
     }
 
     setUsername("");
@@ -51,6 +68,8 @@ function Register() {
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    onLogin({ name, email, username, phone, password });
   }
 
   const validateUsername = () => {
@@ -120,32 +139,44 @@ function Register() {
 
           <div>
             <InputField
-              // label="First Name"
+              label="Name"
               type="ṭext"
               id="firstname"
               name="firstname"
-              placeholder="First Name"
-            />
-          </div>
-          <br />
-          <div>
-            <InputField
-              // label = "Last Name"
-              type="text"
-              id="lastname"
-              name="lastname"
-              placeholder="Last Name"
+              placeholder="Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
           <br />
 
           <div>
             <InputField
-              // label = "Username"
+              label="Email"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
+            
+          {errorEmail && <span className="error">{errorEmail}</span>}
+          </div>
+
+  
+          <br />
+
+          <div>
+            <InputField
+              label = "Username"
               type="text"
               id="username"
               name="username"
               placeholder="Username"
+              value={username}
               onChange={(e) => {
                 setUsername(e.target.value);
               }}
@@ -156,28 +187,26 @@ function Register() {
 
           <div>
             <InputField
-              // label="Email"
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Email"
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
+              label = "Phone"
+              type="number"
+              id="phone"
+              name="phone"
+              placeholder="Phone"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
             />
-            
-          {errorEmail && <span className="error">{errorEmail}</span>}
           </div>
 
           <br />
 
           <div>
             <InputField
-            // label="Password"
+            label="Password"
             type="password"
             id="password"
             name="password"
             placeholder="Password"
+            value={password}
             onChange={(e) => {
               setPassword(e.target.value);
             }}

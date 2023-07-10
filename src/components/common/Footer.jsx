@@ -33,7 +33,7 @@ function Footer() {
   
 
   return (
-    <Box sx={{ flexGrow: 1, padding: "2rem", background: "#000", display: hideFooter ? "none" : "visible" }}>
+    <Box sx={{ flexGrow: 1, padding: "2rem", background: "#0B2447", display: hideFooter ? "none" : "visible" }}>
       <Grid container spacing={2}>
         <Grid xs={12} md={5} lg={4}>
           {/* <Item>Email subscribe section</Item> */}

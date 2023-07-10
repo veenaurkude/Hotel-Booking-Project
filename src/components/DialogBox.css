@@ -1,11 +1,12 @@
 .btn{
     align-items: center;
-    background: #fff;
+    background: #0B2447;
+    color: #fff;
     height: 2rem;
-    border: 1px solid #8B8B8B;
-    border-radius: 2500rem;
+    /* border: 1px solid #8B8B8B; */
+    /* border-radius: 2500rem; */
     display: flex;
-    width: 2rem;
+    /* width: 2rem; */
     cursor: pointer;
     justify-content: center;   
     margin-left: 1rem; 

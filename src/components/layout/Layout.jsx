@@ -49,7 +49,7 @@ function Layout() {
           
           <Route path='/booknow' element={<BookNow />}></Route>
 
-          <Route path='/profile' element={<UserProfile />} />
+          {/* <Route path='/profile' element={<UserProfile />} /> */}
 
           {/* <Route path='/profile' element={< UserProfile/>}></Route> */}
           {/* <Route path='/swiper' element={<Slider />}></Route> */}

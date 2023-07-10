@@ -110,9 +110,14 @@ function Home() {
           </div>
 
           <br />
-          <button className="btn"onClick={()=>navigate('/hotel_list')}>
+          <Button variant="contained" sx={{backgroundColor:"#0B2447", 
+          '&:hover': {
+                backgroundColor: '#19376D', },
+              }}
+            
+          onClick={()=>navigate('/hotel_list')}>
             Search
-          </button>
+          </Button>
         </div>
 
         <div className="Card_Wrapper">

@@ -11,7 +11,7 @@ function DrawerComp(){
                 <ListItemButton>
                     <ListItemIcon>
                      <ListItemText>
-                        SignIn
+                        Hotels
                      </ListItemText>
                     </ListItemIcon>
                 </ListItemButton>

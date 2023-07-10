@@ -60,6 +60,8 @@
 // -----------------------------------------
 
 import * as React from "react";
+import { useState } from "react";
+import {useMediaQuery, useTheme} from '@mui/material';
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -67,10 +69,18 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import DrawerComp from "./DrawerComp";
 
 
 function Header() {
 
+  const [color, setColor] = useState();
+  const theme = useTheme();
+  console.log(theme);
+  
+  const isMatch = useMediaQuery(theme.breakpoints.down("md"));
+  console.log(isMatch);
+  
   const location = useLocation();
 
   const hideHeader = location.pathname === "/login" || location.pathname === "/register";
@@ -83,17 +93,8 @@ function Header() {
         style={{ background: "#0B2447" }}
       >
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-          {/* <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          > */}
-          {/* <MenuIcon /> */}
-          {/* </IconButton> */}
           
-          <div>
+        <div>
             <NavLink to="/home">
               <Button>
                 <Typography
@@ -108,31 +109,37 @@ function Header() {
             </NavLink>
           </div>
 
+          {isMatch ? (
+            <>
+              <DrawerComp />
+            </>
+          ) : (
+            <>
+          
           <div style={{ justifyContent: "flex-end" }}>
 
 
             <NavLink to="/hotel_list">
               <Button sx={{color: "#fff"}}>
-                {/* <ApartmentIcon/> */}
                 Hotels
                 </Button>
             </NavLink>
 
             <NavLink to="/login">
               <Button sx={{color: "#fff"}}>
-                {/* <AccountCircleIcon/> */}
-                Login / SignUp
+                SignIn
                 </Button>
             </NavLink>
 
-            <NavLink to="/swiper">
+            {/* <NavLink to="/profile">
               <Button sx={{color: "#fff"}}>
-                {/* <AccountCircleIcon/> */}
                 Profile
                 </Button>
-            </NavLink>
+            </NavLink> */}
 
           </div>
+          </>
+          )}
         </Toolbar>
       </AppBar>
     </Box>

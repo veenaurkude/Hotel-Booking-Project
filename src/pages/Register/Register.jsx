@@ -2,7 +2,6 @@ import React from "react";
 import "./Register.css";
 import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
-// import hotel from "../../assets/images/hotel.jpg";
 import InputField from "../../components/InputField";
 
 import { useState } from "react";

@@ -98,9 +98,11 @@ function BasicTabs() {
       <TabPanel value={value} index={1}>
         <RoomCard/>
       </TabPanel>
+
       <TabPanel value={value} index={2}>
         Facilities
       </TabPanel>
+      
       <TabPanel value={value} index={3}>
         {/* Location Map */}
 

@@ -1,4 +1,3 @@
-
 // // ----------------------------------------------------------------
 
 // import {
@@ -39,7 +38,7 @@
 //                 textColor="hsl(240, 1%, 48%)"
 //                 value={color}
 //                 onChange={(e, color) => setColor(color)}
-//                 indicatorColor="primary"      
+//                 indicatorColor="primary"
 //               >
 //                 <Tab label="Home" onClick={()=>navigate('/hotel_list')}></Tab>
 //                 <Tab label="About Us"></Tab>
@@ -55,13 +54,11 @@
 // }
 // export default Header;
 
-
-
 // -----------------------------------------
 
 import * as React from "react";
 import { useState } from "react";
-import {useMediaQuery, useTheme} from '@mui/material';
+import { useMediaQuery, useTheme } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -71,36 +68,34 @@ import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import DrawerComp from "./DrawerComp";
 
-
 function Header() {
-
   const [color, setColor] = useState();
   const theme = useTheme();
   console.log(theme);
-  
+
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
   console.log(isMatch);
-  
+
   const location = useLocation();
 
-  const hideHeader = location.pathname === "/login" || location.pathname === "/register";
-
+  const hideHeader =
+    location.pathname === "/login" || location.pathname === "/register";
 
   return (
     <Box sx={{ flexGrow: 1, visibility: hideHeader ? "hidden" : "visible" }}>
-      <AppBar
-        position="fixed"
-        style={{ background: "#0B2447" }}
-      >
+      <AppBar position="fixed" style={{ background: "#0B2447" }}>
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-          
-        <div>
+          <div>
             <NavLink to="/home">
               <Button>
                 <Typography
                   variant="h6"
                   component="div"
-                    sx={{ flexGrow: 1, justifyContent: "flex-start", color: "#fff" }}
+                  sx={{
+                    flexGrow: 1,
+                    justifyContent: "flex-start",
+                    color: "#fff",
+                  }}
                   href="/"
                 >
                   StayVista
@@ -108,37 +103,37 @@ function Header() {
               </Button>
             </NavLink>
           </div>
-
+ 
           {isMatch ? (
             <>
               <DrawerComp />
             </>
           ) : (
             <>
-          
-          <div style={{ justifyContent: "flex-end" }}>
+              <div style={{ justifyContent: "flex-end" }}>
+                <NavLink to="/hotel_list">
+                  <Button>
+                    <Typography variant="body3" sx={{ color: "#fff" }}>
+                      Hotels
+                    </Typography>
+                  </Button>
+                </NavLink>
 
+                <NavLink to="/login">
+                  <Button >
+                  <Typography variant="body3" sx={{ color: "#fff" }}>
+                      Sign In
+                    </Typography>
+                    </Button>
+                </NavLink>
 
-            <NavLink to="/hotel_list">
-              <Button sx={{color: "#fff"}}>
-                Hotels
-                </Button>
-            </NavLink>
-
-            <NavLink to="/login">
-              <Button sx={{color: "#fff"}}>
-                SignIn
-                </Button>
-            </NavLink>
-
-            {/* <NavLink to="/profile">
+                {/* <NavLink to="/profile">
               <Button sx={{color: "#fff"}}>
                 Profile
                 </Button>
             </NavLink> */}
-
-          </div>
-          </>
+              </div>
+            </>
           )}
         </Toolbar>
       </AppBar>
@@ -147,4 +142,3 @@ function Header() {
 }
 
 export default Header;
-

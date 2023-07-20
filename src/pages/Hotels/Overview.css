@@ -4,7 +4,7 @@
   height: 550px;
   width: 900px;
   margin-top: 1px;
-  background-color: rgb(190, 190, 190);
+  background-color: #ddd;
   margin-left: 20px;
   border-radius: 10px;
 }
@@ -21,6 +21,7 @@
 p {
   padding: 10px;
 }
+
 .checked {
   color: orange;
 }

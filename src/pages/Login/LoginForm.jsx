@@ -136,7 +136,7 @@ function LoginForm() {
           <br />
           <Button
             variant="contained"
-            sx={{ width: "100%", marginBottom: "1rem" }}
+            sx={{ width: "100%", marginBottom: "1rem", backgroundColor:"#0B2447" }}
             type="submit"
           >
             Sign In

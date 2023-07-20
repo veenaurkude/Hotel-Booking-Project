@@ -1,7 +1,7 @@
 
 import CheckboxLabels from "./checkbox";
 import RadioButtonsGroup from "./radioBotton";
-import DiscreteSlider from "./range";
+// import DiscreteSlider from "./range";
 import './sideBar.css'
 
 
@@ -10,7 +10,7 @@ return(
     <div className="sidebar">
     <CheckboxLabels></CheckboxLabels>
     <RadioButtonsGroup></RadioButtonsGroup>
-    <DiscreteSlider></DiscreteSlider>
+    {/* <DiscreteSlider></DiscreteSlider> */}
   </div>
 )
 }

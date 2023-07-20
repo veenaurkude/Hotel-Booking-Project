@@ -1,12 +1,8 @@
 .Image_Section{
     display: flex;
-    /* margin: 2rem 5rem auto; */
+    
 }
 
 .SmallImg{
     margin-left: 1rem;
 }
-
-/* img{
-    margin: 0.5rem;
-} */

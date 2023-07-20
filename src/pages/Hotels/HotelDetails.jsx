@@ -2,9 +2,10 @@ import React from "react";
 import "./HotelDetails.css";
 import hotel from "../../assets/images/hotel.jpg";
 import Date from "../../components/Date";
-import BasicTabs from "../../components/TabPanel";
+// import BasicTabs from "../../components/TabPanel";
 import { Button, Grid, Paper } from "@mui/material";
 import DialogBox from "../../components/DialogBox";
+import Tabs from "./Tabs";
 
 function HotelDetails() {
   return (
@@ -18,7 +19,12 @@ function HotelDetails() {
         </div>
 
         <div>
-          <Button variant="contained">Check Availability</Button>
+          <Button variant="contained"
+            sx={{backgroundColor:"#0B2447", 
+            '&:hover': {
+                  backgroundColor: '#19376D', },
+                }} 
+          >Check Availability</Button>
         </div>
       </div>
 
@@ -79,7 +85,9 @@ function HotelDetails() {
         </Grid>
       </div>
 
-      <BasicTabs />
+      {/* <BasicTabs /> */}
+
+      <Tabs/>
     </>
   );
 }

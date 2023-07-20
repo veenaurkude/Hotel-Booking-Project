@@ -1,6 +1,6 @@
 import "./Overview.css";
 
-function Overview() {
+function Overviews() {
   return (
     <>
       <div className="maincontainer">
@@ -28,4 +28,5 @@ function Overview() {
     </>
   );
 }
-export default Overview;
+
+export default Overviews;

@@ -2,14 +2,15 @@
 
 /* Sidebar styles */
 .sidebar {
-    width: 220px;
-    height: 100vh;
-    padding: 20px;
+    /* width: 220px; */
+    /* height: 100vh; */
+    width: 20rem;
+    padding: 2rem;
     background-color: white;
   }
   
   .sidebar h2 {
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
   }
 
   

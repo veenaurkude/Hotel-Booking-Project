@@ -13,9 +13,9 @@ import Register from '../../pages/Register/Register';
 import LoginForm from '../../pages/Login/LoginForm';
 import About from '../../pages/About/About';
 import RoomCard from '../../pages/Hotels/rooms';
-import UserProfile from '../../pages/Profile/UserProfile';
 import HotelList from '../../pages/Hotel List/hotelList';
 import BookNow from '../../pages/Book now/bookNow';
+// import UserProfile from '../../pages/Profile/UserProfile';
 
 // import Slider from '../../pages/Login/Slider';
 // import Overview from '../../pages/Hotels/overview'; 

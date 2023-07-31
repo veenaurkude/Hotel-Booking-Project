@@ -23,7 +23,7 @@ function Register({onLogin}) {
   const [password, setPassword] = useState("");
   const [] = useState(initialValues);
   const navigate = useNavigate();
-
+  
   const [errorUser, setErrorUser] = useState("");
   const [errorEmail, setErrorEmail] = useState("");
   const [errorPass, setErrorPass] = useState("");
@@ -116,8 +116,6 @@ function Register({onLogin}) {
       return true;
     }
   };
-
-
 
     const SignIn=()=>{
         navigate('/login')

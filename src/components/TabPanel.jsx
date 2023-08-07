@@ -7,6 +7,7 @@ import Box from "@mui/material/Box";
 import "../pages/Hotels/Overview.css";
 import Ratings from "./Ratings";
 import RoomCard from "../pages/Hotels/rooms";
+import { useState } from "react";
 
 // import { Button } from "@mui/material";  
 
@@ -47,7 +48,7 @@ function a11yProps(index) {
 }
 
 function BasicTabs() {
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);

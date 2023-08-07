@@ -8,10 +8,59 @@ import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import "../Book now/bookNow.css"
 import { useNavigate } from "react-router";
+import { useState } from "react";
 
 
 function BookNow() {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+    const [bookData, setBookData] = useState({
+      fullName:'',
+      emailAdress:'',
+      phoneNo: ''
+    })
+
+    const [errors, setErrors] = useState({
+      fullName:'',
+      emailAdress:'',
+      phoneNo: ''
+    })
+
+    const handleChange=(e)=>{
+      const {name, value} = e.target;
+      setBookData({...bookData,[name]: value});
+      setErrors({...errors, [name]:''})
+    }
+    
+    const handleSubmit=(e)=>{
+      e.preventDefault();
+      const newError= {};
+
+      if(!bookData.fullName.trim()){
+        newError.fullName ='FullName is required'
+      }
+      if(!bookData.emailAdress.trim()){
+        newError.emailAdress =" Email Adress is required"
+      }
+      else if(!isValidEmail(bookData.emailAdress)){
+        newError.emailAdress ="Invalid email address format"
+      }
+      if(!bookData.phoneNo.trim()){
+        newError.phoneNo = "Phone number is required"
+      }
+
+      if(Object.keys(newError).length>0){
+        setErrors(newError);
+      }
+      else{
+        console.log("Booking registration is done!", bookData);
+      }
+    }
+
+    const isValidEmail = (email) => {
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailPattern.test(email);
+    };
   return (
     <>
     <Box>
@@ -42,6 +91,7 @@ function BookNow() {
           <Box sx={{padding:'1rem'}}>
             <Card sx={{ minWidth: 375}}>
               <CardContent>
+                <form onSubmit={handleSubmit}>
                 <Typography variant="h4">Enter your details</Typography>
                 <Typography variant="body1">
                   We will use these details to share your booking information
@@ -53,7 +103,12 @@ function BookNow() {
                       id="outlined-basic"
                       placeholder="Enter your first and last name"
                       fullWidth
+                      type="text"
+                      name="fullName"
+                      value={bookData.fullName}
+                      onChange={handleChange}
                     />
+                    {errors.fullName && <span className="error">{errors.fullName}</span>}
                   </Box>
                   <Box>
                     <label htmlFor="outlined-basic2" className="labelForm">Email Address </label>
@@ -62,7 +117,11 @@ function BookNow() {
                       placeholder="name@abc.com"
                       fullWidth
                       type="email"
+                      name="emailAdress"
+                      value={bookData.emailAdress}
+                      onChange={handleChange}
                     />
+                    {errors.emailAdress && <span className="error">{errors.emailAdress}</span>}
                   </Box>
                 </Box>
 
@@ -74,12 +133,18 @@ function BookNow() {
                       placeholder="e.g. 1234567890"
                       fullWidth
                       type="number"
+                      name="phoneNo"
+                      value={bookData.phoneNo}
+                      onChange={handleChange}
                     />
+                    {errors.phoneNo && <span className="error">{errors.phoneNo}</span>}
                   </Box>
                   <Box>
-                    <Button variant="contained" disabled>Send passcode</Button>
+                    {/* <Button variant="contained" sx={{backgroundColor:'rgb(247, 147, 41)'}}>Send passcode</Button> */}
+                    <button className="btn" type="submit">Send Passcode</button>
                   </Box>
                 </Box>
+                </form>
                   </CardContent>
             </Card>
           </Box>
@@ -103,8 +168,8 @@ function BookNow() {
                 Deluax
               </Typography>
               <Box sx={{width:350, height:150, display:'flex', flexDirection:'column', justifyContent:'space-evenly'}}>
-                <Box sx={{display:'flex', justifyContent:'space-between'}}>
-                    <Box>
+                <Box sx={{display:'flex', justifyContent:'space-between' }}>
+                    <Box color='hsl(240, 1%, 4'>
                     Room price for 1 Night X 2 Guests
                     </Box>
                     <Box className="labelForm">
@@ -141,7 +206,8 @@ function BookNow() {
               
             </CardContent>
             <CardActions  sx={{display:'flex', justifyContent:'center'}}>
-              <Button size="medium" variant="contained" color="error">Confirm Booking</Button>
+              {/* <Button size="medium" variant="contained" sx={{backgroundColor:"rgb(247, 147, 41)"}}>Confirm Booking</Button> */}
+              <button className="btn">Confirm Booking</button>
             </CardActions>
           </Card>
         </Box>

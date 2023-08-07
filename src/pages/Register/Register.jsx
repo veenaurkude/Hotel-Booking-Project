@@ -7,115 +7,89 @@ import InputField from "../../components/InputField";
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { colors } from "@mui/material";
 
-function Register({onLogin}) {
+function Register() {
 
-  let initialValues;
-  if (localStorage.getItem("user")) {
-    initialValues = JSON.parse(localStorage.getItem("user"));
-  } else {
-    initialValues = [];
-  }
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    username:'',
+    phone:'',
+    password: '',
+  });
 
-  const [name, setName] = useState("")
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone,setPhone] = useState("");
-  const [password, setPassword] = useState("");
-  const [] = useState(initialValues);
+  const [errors, setErrors] = useState({});
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
   const navigate = useNavigate();
 
-  const [errorUser, setErrorUser] = useState("");
-  const [errorEmail, setErrorEmail] = useState("");
-  const [errorPass, setErrorPass] = useState("");
-
-  function handleRegister() {
-    const isUsernameValid = validateUsername();
-    const isEmailValid = validateEmail();
-    const isPasswordValid = validatePassword();
-
-    // if (isUsernameValid && isEmailValid && isPasswordValid) {
-    //   const user = {name: username, email, password };
-    //   const storedUsers = localStorage.getItem("users");
-    //   const users = storedUsers ? JSON.parse(storedUsers) : [];
-    //   users.push(user);
-    //   localStorage.setItem("users", JSON.stringify(users));
-    //   alert("Registration successful");
-    //   navigate("/login");
-    // } else {
-    //   alert("Please fill in all required fields with valid values");
-    // }
-
-    // --------------------
-
-    if (isUsernameValid && isEmailValid && isPasswordValid) {
-      const user = { name, email, username, phone, password };
-      const storedUsers = localStorage.getItem("users");
-      const users = storedUsers ? JSON.parse(storedUsers) : [];
-      users.push(user);
-      localStorage.setItem("users", JSON.stringify(users));
-      alert("Registration successful");
-      navigate("/login");
-    } else {
-      // ... existing code ...
-    }
-
-    setUsername("");
-    setEmail("");
-    setPassword("");
-    console.log(username,email,password);
-  }
-
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
+    // Validate the form data before submitting
+    const validationErrors = validateForm(formData);
+    setErrors(validationErrors);
 
-    onLogin({ name, email, username, phone, password });
+    // If there are no validation errors, proceed with form submission
+    if (Object.keys(validationErrors).length === 0) {
+      // Submit the form data to your backend or perform further actions
+      console.log('Form submitted successfully:', formData);
+      setFormData({
+        name: '',
+        email: '',
+        username:'',
+        phone:'',
+        password: '',
+      });
+      setErrors('');
+    }
+  };
+
+const validateForm=(data)=>{
+  let errors ={};
+  if (!data.name.trim()) {
+    errors.name = 'Name is required';
   }
+  if (!data.email.trim()) {
+    errors.email = 'Email is required';
+  } else if (!validateEmail(data.email)) {
+    errors.email = 'Invalid email address';
+  }
+  if(!data.username.trim()){
+    errors.username = 'Username is required'
+}else if (!validateUsername(data.username)) {
+  errors.username = 'Invalid Username';
+}
+if (!data.phone.trim()) {
+  errors.phone = 'Mobile Number is required';
+}
+if (!data.password.trim()) {
+  errors.password = 'Password is required';
+} else if (!validatePassword(data.password)) {
+  errors.password = 'Password must be at least 6 characters long';
+}
+return errors;
+}
 
-  const validateUsername = () => {
-    const regex = /^[a-zA-Z0-9]+$/;
-    if (!username) {
-      setErrorUser("Username is required!");
-      return false;
-    } else if (!regex.test(username)) {
-      setErrorUser("Username should only contain letters and numbers!");
-      return false;
-    } else {
-      setErrorUser("");
-      return true;
-    }
+
+  const validateUsername = (username) => {
+    const userRegex = /^[a-zA-Z0-9]+$/;
+    return userRegex.test(username);
   };
 
-  const validateEmail = () => {
-    const regex = /^\S+@\S+\.\S+$/;
-    if (!email) {
-      setErrorEmail("Email is required!");
-      return false;
-    } else if (!regex.test(email)) {
-      setErrorEmail("It should be a valid email address");
-      return false;
-    } else {
-      setErrorEmail("");
-      return true;
-    }
+  const validateEmail = (email) => {
+    const emailRegex = /^\S+@\S+\.\S+$/;
+    return emailRegex.test(email);
   };
 
-  const validatePassword = () => {
-    const regex =
+  const validatePassword = (password) => {
+    const passRegex =
       /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/;
-
-    if (!password) {
-      setErrorPass("Password is required!");
-      return false;
-    } else if (!regex.test(password)) {
-      setErrorPass(
-        "Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!"
-      );
-      return false;
-    } else {
-      setErrorPass("");
-      return true;
-    }
+      return passRegex.test(password)
   };
 
 
@@ -127,6 +101,11 @@ function Register({onLogin}) {
   return (
     <div className="Wrapper">
       {/* <h2 className="Heading">Sign Up</h2> */}
+      <div className="SignContent">
+
+        image
+        
+      </div>
 
       <div className="Form_Section">
         
@@ -140,13 +119,14 @@ function Register({onLogin}) {
           <div>
             <InputField
               // label="First Name"
-              type="ṭext"
-              id="firstname"
-              name="firstname"
+              type="name"
+              id="name"
+              name="name"
               placeholder="Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={formData.name}
+              onChange={handleChange}
             />
+             {errors.name && <span className="error">{errors.name}</span>}
           </div>
           <br />
 
@@ -157,13 +137,11 @@ function Register({onLogin}) {
               id="email"
               name="email"
               placeholder="Email"
-              value={email}
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
+              value={formData.email}
+              onChange={handleChange}
             />
             
-          {errorEmail && <span className="error">{errorEmail}</span>}
+          {errors.email && <span className="error">{errors.email}</span>}
           </div>
 
   
@@ -176,12 +154,10 @@ function Register({onLogin}) {
               id="username"
               name="username"
               placeholder="Username"
-              value={username}
-              onChange={(e) => {
-                setUsername(e.target.value);
-              }}
+              value={formData.username}
+              onChange={handleChange}
             />
-            {errorUser && <span className="error">{errorUser}</span>}
+            {errors.username && <span className="error">{errors.username}</span>}
           </div>
           <br />
 
@@ -192,9 +168,10 @@ function Register({onLogin}) {
               id="phone"
               name="phone"
               placeholder="Phone"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              value={formData.phone}
+              onChange={handleChange}
             />
+             {errors.phone && <span className="error">{errors.phone }</span>}
           </div>
 
           <br />
@@ -206,32 +183,30 @@ function Register({onLogin}) {
             id="password"
             name="password"
             placeholder="Password"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
+            value={formData.password}
+            onChange={handleChange}
             />
             
-            {errorPass && <span className="error">{errorPass}</span>}
+            {errors.password && <span className="error">{errors.password}</span>}
         
           </div>
           <br />
           <div>
             <Button
-              onClick={handleRegister}
               variant="contained"
-                sx={{ width: "100%", marginBottom: "0.5em" }}
+                sx={{ width: "100%", marginBottom: "0.5em", backgroundColor:"rgb(247, 147, 41)", color:'hsl(240, 1%, 48%)' }}
+                type="submit"
             >
               Sign Up
             </Button>
           </div>
 
-          <Divider>OR</Divider>
+          <Divider sx={{color:'hsl(240, 1%, 48%)'}}>OR</Divider>
 
           <div>
             <Button
               variant="contained"
-              sx={{ width: "100%", marginTop: "0.5rem" }}
+              sx={{ width: "100%", marginTop: "0.5rem", backgroundColor:"rgb(247, 147, 41)" }}
               onClick={SignIn}
             >
               Already have an account? Sign In

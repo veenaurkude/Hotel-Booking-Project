@@ -206,9 +206,12 @@ import AppBar from "@mui/material/AppBar";
 import ApartmentIcon from "@mui/icons-material/Apartment";
 import { useState } from "react";
 import DrawerComp from "./DrawerComp";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function Header() {
+  const location = useLocation();
+
+  const hideHeader = location.pathname === "/login" || location.pathname === "/register";
   const navigate = useNavigate()
   const [color, setColor] = useState();
   const theme = useTheme();
@@ -217,7 +220,8 @@ function Header() {
   console.log(isMatch);
   return (
     <>
-      <AppBar sx={{ backgroundColor: "rgb(247, 147, 41)", height:'3rem', display:'flex', justifyContent:'center'}}>
+      <AppBar sx={{ backgroundColor: "rgb(247, 147, 41)", height:'3rem', display:'flex', justifyContent:'center',
+    visibility: hideHeader ? "hidden" : "visible"}}>
         <Toolbar>
           <ApartmentIcon />
           <Typography>StaySafe</Typography>
@@ -228,13 +232,13 @@ function Header() {
           ) : (
             <>
               <Tabs
-                textColor="hsl(240, 1%, 48%)"
+                textColor="inherit"
                 value={color}
                 onChange={(e, color) => setColor(color)}
                 indicatorColor="primary"      
               >
-                <Tab label="Home" onClick={()=>navigate('/hotel_list')}></Tab>
-                <Tab label="About Us"></Tab>
+                <Tab label="Home" onClick={()=>navigate('/home')}></Tab>
+                <Tab label="Hotels" onClick={()=>navigate('/hotel_list')}></Tab>
                 <Tab label="Contact us"></Tab>
               </Tabs>
               <Button sx={{ marginLeft: "Auto", color:'white'}} onClick={()=>navigate('/login')}>Sign In</Button>
